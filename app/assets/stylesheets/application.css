@@ -1,0 +1,421 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  
+  /* 通常のヘッダー */
+header {
+  background-image: url('/assets/Nihonsyu header.jpg.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* hello/index 用のヘッダー */
+
+.header-logo {
+  position: relative;      /* ロゴを相対的に配置 */
+  z-index: 10;             /* 背景の上に表示するために高い z-index を指定 */
+  margin-right: 20px;      /* ロゴの右側にスペースを作る */
+}
+
+.logo-description {
+  font-size: 20px;     /* 説明文のフォントサイズ */
+  color:white;         /* 説明文の色 */
+  margin-top: 5px;    /* ロゴと説明文の間にスペースを追加 */
+  line-height: 1;    /* 説明文の行間を少し広く */
+  max-width: 300px;    /* 説明文の幅を調整 */
+  margin: 10px auto;   /* 説明文を中央に配置 */
+  text-align: center;  /* 説明文を中央揃えに */
+}
+
+
+.header-logo img {
+  height: 300px;            /* ロゴの高さを指定 */
+  width: auto;             /* 幅は自動調整 */
+  display: block;          /* ロゴをブロック要素として扱い、独立させる */
+}
+
+
+
+.random-header {
+  background-image: none;  /* 画像を表示しない */
+  background-color:  white;  /* 代わりに背景色を設定 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  height: 700px; /* ヘッダーの高さ */
+  overflow: hidden;
+}
+
+/* 左側のセクション */
+.left-section,
+.right-section {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 2s ease-in-out; /* フェードアニメーションを追加 */
+  opacity: 1; /* デフォルトでは表示 */
+}
+
+/* 画像がフェードアウトするとき */
+.fade-out {
+  opacity: 0; /* フェードアウト */
+  z-index: 0; /* 背景に送る */
+}
+
+/* 画像がフェードインするとき */
+.fade-in {
+  opacity: 1; /* フェードイン */
+  z-index: 1; /* 前面に表示 */
+}
+
+/* 左側の斜めクリッピング */
+.left-section {
+  left: 0;
+  clip-path: polygon(0 0, 10% 0, 90% 100%, 0 100%);
+}
+
+/* 右側の斜めクリッピング */
+.right-section {
+  right: 0;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 90% 100%);
+}
+
+/* ヘッダーの中のコンテンツ */
+.header-content {
+  position: relative;
+  z-index: 2; /* 背景より前面に表示 */
+  color: white; /* テキストの色 */
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 200px; /* コンテンツを中央に配置 */
+}
+
+.header-section {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.header-title {
+  color: aliceblue;
+}
+
+.header-list {
+  position: absolute;
+  
+  top: 10px;
+  right: 0;
+  background-color: white;
+  padding: 10px 0;
+}
+
+.header-list ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-list li {
+  padding: 5px 10px;
+  padding-right: 10px;
+  border-right: 1px solid #000;
+}
+
+.header-list li:last-child {
+  border-right: none;
+}
+
+.header-list a {
+  text-decoration: none;
+  color: #000;
+}
+
+  
+ 
+/* 全体の検索フォームのスタイル */
+
+/* 検索タイトルのデザイン */
+.search-title {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* 検索タイトルに下線を追加 */
+.search-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #007bff; /* メインのテーマカラー */
+  margin: 10px auto;
+}
+
+/* 検索ボックス */
+.searchbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  padding: 12px 16px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  margin: 0 10px;
+  width: 220px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 検索ボックスの×マーク */
+.search-separator {
+  font-size: 2rem;
+  color: #555;
+  margin: 0 15px;
+}
+
+/* タグボックス */
+.tag-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* タグのスタイル */
+.tag-label {
+  background-color: #f0f0f0;  /* 非選択時の背景色 */
+  border-radius: 30px;
+  padding: 8px 18px;
+  margin: 5px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;  /* 色の遷移をスムーズに */
+}
+
+/* チェックボックスが選択されたときに、ラベルに色をつける */
+.tag-checkbox:checked + .tag-label {
+  background-color: #007bff;
+  color: white;
+  border-radius: 30px; /* 選択時も丸みを維持 */
+  padding: 8px 18px;  /* 選択時でもpaddingを変えない */
+  display: inline-block;
+  
+  font-size: inherit;
+  margin: inherit;
+}
+
+/* タグにホバー時の効果 */
+.tag-label:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* チェックボックスを非表示にする */
+
+
+/* 検索ボタン */
+.search-button {
+  display: block;
+  padding: 10px 20px;
+  background-color: rgb(68, 147, 238);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s aute;
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+
+.search-button:hover {
+  background-color: blue;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+  .searchbox {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-separator {
+    display: none;
+  }
+
+  .search-input {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .tag-box {
+    justify-content: flex-start;
+  }
+}
+
+
+
+
+
+ /* 全体のコンテナ設定 */
+.chats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;  /* 左詰めに配置 */
+  gap: 20px;                    /* カード間のスペースを広げる */
+  padding: 20px;
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #f4f4f4;     /* 明るい背景色 */
+}
+
+/* カードのスタイル */
+.chat-item {
+  width: 300px;               /* カードの幅を固定 */
+  padding: 20px;
+  background-color: #ffffff;  /* カードの背景を白に */
+  border-radius: 12px;        /* カードの角をさらに丸く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を少し強調 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* カードにホバー効果を追加 */
+  position: relative;         /* ボタンやリンクの配置を改善するため */
+}
+
+/* カードにホバー時のアニメーション */
+.chat-item:hover {
+  transform: translateY(-5px); /* 少し浮かび上がる効果 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+/* タイトルのスタイル */
+.chat-item h2 {
+  font-size: 1.8em;
+  color: #333;  /* より濃い色で目立たせる */
+  margin-bottom: 10px;
+}
+
+/* 画像のスタイル */
+.chat-item img {
+  width: 100%;               /* 幅を常に100%に */
+  height: auto;              /* 縦横比を維持 */
+  border-radius: 8px;        /* 画像の角も少し丸く */
+  margin-bottom: 15px;
+}
+
+/* テキスト部分 */
+.chat-item p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #666;  /* 読みやすく落ち着いた色に */
+}
+
+/* ユーザー名表示 */
+.chat-item p:last-of-type {
+  font-weight: bold;
+  color: #333;
+}
+
+/* いいねボタン */
+.chat-item .like-button {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-item .like-button:hover {
+  background-color: #0056b3;
+}
+
+/* リンクボタン */
+.chat-item a {
+  display: block;
+  margin: 10px 0;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.chat-item a:hover {
+  color: #0056b3; /* ホバー時のリンク色 */
+}
+
+/* レスポンシブデザイン: 大きな画面用 */
+@media (max-width: 1200px) {
+  .chat-item {
+    flex: 1 1 250px;
+  }
+}
+
+/* レスポンシブデザイン: 小さな画面用 */
+@media (max-width: 768px) {
+  .chat-item {
+    flex: 1 1 100%;
+  }
+}
+
+
+
+  .form-container {
+    border: 1px solid black; /* 枠線の色と太さ */
+    padding: 20px;          /* コンテンツとの余白 */
+    border-radius: 10px;     /* 四角の角を丸くしたい場合 */
+    max-width: 600px;        /* 最大幅 */
+    margin: 20px auto;       /* 上下に20pxの余白、左右は自動で中央寄せ */
+    background-color: #f9f9f9; /* 背景色 */
+    gap: 20px; 
+    
+  }

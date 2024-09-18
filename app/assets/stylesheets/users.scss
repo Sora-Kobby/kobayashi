@@ -1,0 +1,89 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+
+/* ログインフォーム全体のスタイル */
+.login-form {
+    max-width: 500px;      /* フォームの幅を調整 */
+    margin: 50px auto;     /* フォームを画面中央に配置 */
+    padding: 20px;         /* フォーム内の余白 */
+    border: 1px solid #ddd; /* ボーダーを追加 */
+    border-radius: 10px;   /* 角を丸くする */
+    background-color: #f9f9f9; /* 背景色 */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* 影をつけて浮き上がる効果 */
+ }
+  
+  /* フォーム内の各フィールド */
+  .login-form .field {
+    margin: 10px 0 0 0;   /* フィールド間に余白を作る */
+  }
+  
+  .login-form .field label {
+    font-weight: bold;     /* ラベルを太字に */
+    display: flex;        /* ラベルをブロック要素にして配置 */
+    margin-bottom: 0;    /* ラベルと入力欄の間にスペースを追加 */
+  }
+  
+  .login-form input {
+    width: 90%;           /* 入力欄をフォームの幅いっぱいに */
+    padding: 10px;         /* 入力欄にパディングを追加 */
+    border: 1px solid #ddd; /* 入力欄のボーダー */
+    border-radius: 5px;    /* 入力欄の角を丸く */
+  }
+  
+  /* ボタンのスタイル */
+  .login-form .actions input {
+    width: 100%;           /* ボタンをフォームの幅いっぱいに */
+    padding: 10px;         /* ボタンのパディング */
+    background-color: #f4d35e; /* ボタンの背景色 */
+    color: white;          /* ボタンの文字色 */
+    border: none;          /* ボタンのボーダーを削除 */
+    border-radius: 5px;    /* ボタンの角を丸く */
+    cursor: pointer;       /* ボタンをクリックできるように */
+  }
+  
+  .login-form .actions input:hover {
+    background-color: #dfad14; /* ホバー時の色 */
+  }
+  
+  /* remember-me チェックボックスの親要素に適用 */
+    .remember-me {
+        display: flex;          /* チェックボックスとラベルを横並びにする */
+        justify-content: flex-start; /* 左揃えを強制 */
+        align-items: center;    /* チェックボックスとテキストを上下中央揃えにする */
+        margin-bottom: 20px;    /* 下に余白を追加 */
+        padding-left: 0;        /* 余分な左のスペースを削除 */
+        white-space: nowrap; 
+    }
+  
+  /* チェックボックスを大きくする */
+    .remember-checkbox {
+        width: 20px;            /* チェックボックスの幅 */
+        height: 20px;           /* チェックボックスの高さ */
+        margin-right: 0;     /* チェックボックスとラベルの間に余白を追加 */
+        margin-left: 0px
+    }
+  
+
+    /* ログインフォームのリンクスタイル */
+.login-links {
+    margin-top: 10px;     /* フォームとの余白 */
+    text-align: center;   /* 中央揃え */
+  }
+  
+  /* 個別リンクのスタイル */
+  .login-links a {
+    display: block;       /* 各リンクをブロック要素にして1行に1つ表示 */
+    margin: 5px 0;        /* リンク間に余白を追加 */
+    color: #dfad14;       /* リンクの色 */
+    text-decoration: none;/* アンダーラインを消す */
+  }
+  
+  .login-links a:hover {
+    color: #dfad14;       /* ホバー時のリンクの色 */
+  }
+  /* ラベルのスタイルを調整（必要なら） */
+    

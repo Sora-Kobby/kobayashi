@@ -1,0 +1,64 @@
+<h1>users#show</h1>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
+<h2>ユーザーの投稿一覧</h2>
+<% if @chats.any? %>
+    <div class="chats-container">
+        <% @chats.each do |chat| %>
+        <div class="chat-item">
+             <h2><%= chat.drink %> ✖️ <%= chat.snack %></h2>
+
+            <% if chat.tags.any? %>
+            <p>#
+            <% chat.tags.each do |tag| %>
+                <span><%= tag.name %></span>
+            <% end %>
+            </p>
+            <% end %>
+            
+            <%= image_tag chat.image_url, size: "250x200" if chat.image? %>
+            
+            <p><%= chat.body %></p>
+
+            <p><%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+            <p><%= chat.user.email %></p>
+            <%= link_to "詳細へ", chat_path(chat.id) %>
+            <% if user_signed_in? && current_user.id == chat.user_id %>
+            <%= link_to "編集する", edit_chat_path(chat.id) %>
+            <%= button_to "削除する", chat_path(chat.id), method: :delete %>
+            <% end %>
+            
+            <!-- いいね機能 -->
+            <% if user_signed_in? %>
+                <% if current_user.liked_chats.include?(chat) %>
+                <%= button_to 'いいねを取り消す', chat_like_path(chat, current_user.likes.find_by(chat: chat)), method: :delete %>
+            <% else %>
+                <%= button_to 'いいね', chat_likes_path(chat), method: :post %>
+            <% end %>
+            <% end %>
+
+        <p>いいねの数: <%= chat.likes.count %></p>
+        </div>
+    <% end %>
+</div>
+
+<% else %>
+  <p>まだ投稿はありません。</p>
+<% end %>
+
+
+<!-- 以下はいいね機能を実装している場合-->
+<h2>ユーザーがいいねした投稿一覧</h2>
+<% @user.liked_chats.each do |t| %>
+  <%= t.user.name %>
+  <%= t.body %>
+<% end %>
+<!-- ここまで-->
+
+<%= link_to "Tweet一覧に戻る", chats_path %>

@@ -1,0 +1,60 @@
+
+<h2 class="search-title">投稿を検索する</h2>
+
+<%= form_tag({controller: "hello", action: "index"}, method: :get) do %>
+  <div class="searchbox">
+    <%= text_field_tag :drink, params[:drink], placeholder: "お酒を検索", class: "search-input" %>
+    <h4 class="search-separator">×</h4>
+    <%= text_field_tag :snack, params[:snack], placeholder: "あてを検索", class: "search-input" %>
+  </div>
+
+  <div class="tag-box">
+    <% Tag.all.each do |t| %>
+      <label class="tag-label">
+        <%= check_box_tag 'tag_ids[]', t.id, params[:tag_ids]&.include?(t.id.to_s), class: "tag-checkbox" %>
+        <span class="tag-name"><%= t.name %></span>
+      </label>
+    <% end %>
+  </div>
+
+  
+  <%= submit_tag '検索', class: "search-button" %>
+<% end %>
+
+<div class="chats-container">
+  <% @chats.each do |chat| %>
+    <div class="chat-item">
+      <h2><%= chat.drink %> ✖️ <%= chat.snack %></h2>
+
+      <% if chat.tags.any? %>
+        <p>
+          <% chat.tags.each do |tag| %>
+            <span><%= tag.name %></span>
+          <% end %>
+        </p>
+      <% end %>
+
+      <%= image_tag chat.image_url, size: "250x200" if chat.image? %>
+
+      <p><%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+      <p><%= chat.user.name %></p>
+      <%= link_to "詳細へ", chat_path(chat.id) %>
+      
+      <% if user_signed_in? && current_user.id == chat.user_id %>
+        <%= link_to "編集する", edit_chat_path(chat.id) %>
+        <%= button_to "削除する", chat_path(chat.id), method: :delete %>
+      <% end %>
+
+      <!-- いいね機能 -->
+      <% if user_signed_in? %>
+        <% if current_user.liked_chats.include?(chat) %>
+          <%= button_to 'いいねを取り消す', chat_like_path(chat, current_user.likes.find_by(chat: chat)), method: :delete %>
+        <% else %>
+          <%= button_to 'いいね', chat_likes_path(chat), method: :post %>
+        <% end %>
+      <% end %>
+
+      <p>いいねの数: <%= chat.likes.count %></p>
+    </div>
+  <% end %>
+</div>

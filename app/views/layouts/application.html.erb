@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>お酒×</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="<%= 'random-header' if controller_name == 'hello' && action_name == 'index' %>">
+      <% if controller_name == 'hello' && action_name == 'index' %>
+      <!-- hello/index ページ専用のヘッダー -->
+      <div class="left-section">
+      </div>
+
+      <div class="right-section">
+        <div class="header-list">
+          <ul>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li><%= link_to '新規登録', new_user_registration_path %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header-logo">
+        <%= image_tag 'logo2.png', alt: 'サイトのロゴ' %>
+        <p class="logo-description">お酒好きのための情報共有サイト</p>
+      </div>
+
+      <% else %>
+        <!-- 通常のヘッダー -->
+        <div class="header-title">
+          <h1>おさけかける</h1>
+          <h6>お酒好きの情報共有サイト</h6>
+        </div>
+
+        <div class="header-list">
+          <ul>
+            <li><%= link_to "ホーム", chats_path %></li>
+            <li><%= link_to "共有する", new_chat_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html>
