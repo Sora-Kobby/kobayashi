@@ -1,8 +1,8 @@
 
-<h3>新規投稿</h3>
+<h3>投稿の編集</h3>
 
 <div class="form-container">
-<%= form_with(model: @chat, local: true) do |f| %>
+<%= form_with(model: @chat, local: true,) do |f| %>
   <div class="field">
     <%= f.label :drink, "お酒" %>
     <%= f.text_field :drink %>

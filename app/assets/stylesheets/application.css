@@ -27,15 +27,66 @@
   
   /* 通常のヘッダー */
 header {
-  background-image: url('/assets/Nihonsyu header.jpg.jpeg');
+  background-image: url('/assets/bannner.jpg');
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 300px;
   font-weight: bold;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo img {
+  
+  height: 200px; /* ロゴの高さを調整 */
+  width: auto;
+  padding-top: 30px
+}
+
+.logo-tagline {
+  font-size: 30px;
+  color: white;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* ヘッダー全体を縦に並べる */
+    height: auto;
+  }
+
+  /* ロゴはそのまま中央 */
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  /* メニューを左に配置し、縦に並べる */
+  .header-list {
+    align-items: flex-start;
+    width: auto;
+    padding-left: 10px;
+  }
+
+  .header-list ul {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .header-list li {
+    margin: 10px 0;
+  }
+}
+
+
+
+
 
 /* hello/index 用のヘッダー */
 
@@ -166,6 +217,8 @@ header {
   color: #000;
 }
 
+
+
   
  
 /* 全体の検索フォームのスタイル */
@@ -185,7 +238,7 @@ header {
   display: block;
   width: 80px;
   height: 3px;
-  background-color: #007bff; /* メインのテーマカラー */
+  background-color: #dfad14; /* メインのテーマカラー */
   margin: 10px auto;
 }
 
@@ -209,7 +262,7 @@ header {
 }
 
 .search-input:focus {
-  border-color: #007bff;
+  border-color: #bff;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -230,7 +283,7 @@ header {
 
 /* タグのスタイル */
 .tag-label {
-  background-color: #f0f0f0;  /* 非選択時の背景色 */
+  background-color: #f4d35e;  /* 非選択時の背景色 */
   border-radius: 30px;
   padding: 8px 18px;
   margin: 5px;
@@ -241,7 +294,7 @@ header {
 
 /* チェックボックスが選択されたときに、ラベルに色をつける */
 .tag-checkbox:checked + .tag-label {
-  background-color: #007bff;
+  background-color: #dfad14;
   color: white;
   border-radius: 30px; /* 選択時も丸みを維持 */
   padding: 8px 18px;  /* 選択時でもpaddingを変えない */
@@ -253,7 +306,7 @@ header {
 
 /* タグにホバー時の効果 */
 .tag-label:hover {
-  background-color: #007bff;
+  background-color: #dfad14;
   color: white;
 }
 
@@ -264,8 +317,8 @@ header {
 .search-button {
   display: block;
   padding: 10px 20px;
-  background-color: rgb(68, 147, 238);
-  color: white;
+  background-color: #f4d35e;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -275,7 +328,7 @@ header {
 }
 
 .search-button:hover {
-  background-color: blue;
+  background-color: #dfad14;
 }
 
 /* レスポンシブデザイン */
@@ -313,6 +366,13 @@ header {
   max-width: 100%;
   margin: 20px auto;
   background-color: #f4f4f4;     /* 明るい背景色 */
+}
+
+/* リンクをカードの親要素として全体をクリック可能に */
+.chat-item-link {
+  display: block;       /* ブロック要素にして全体をリンク化 */
+  text-decoration: none; /* リンクの下線を消す */
+  color: inherit;       /* リンク内のテキストカラーを継承 */
 }
 
 /* カードのスタイル */
@@ -360,39 +420,108 @@ header {
   color: #333;
 }
 
-/* いいねボタン */
-.chat-item .like-button {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+
+.focus{
+  display: inline-block;
+  padding: 4px 7px;
   font-size: 1rem;
-  background-color: #007bff;
-  color: white;
-  padding: 8px 12px;
-  border: none;
+  background-color: #f4d35e;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.chat-item .like-button:hover {
-  background-color: #0056b3;
-}
-
-/* リンクボタン */
-.chat-item a {
-  display: block;
-  margin: 10px 0;
-  color: #007bff;
-  font-weight: bold;
+  margin-right: 5px;
+  border: 1px solid #ddd; /* 境界線を追加 */
+  color: #333; /* テキストを落ち着いたダークカラーに */
+  text-align: center;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* スムーズな色と影の変化 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボタンに軽い影を追加 */
 }
 
-.chat-item a:hover {
-  color: #0056b3; /* ホバー時のリンク色 */
+.focus:hover{
+  background-color: #dfad14;
 }
 
+
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;          /* 折り返しを有効化 */
+}
+
+/* 各色のボタンスタイルをより落ち着かせる */
+.btn-primary3 {
+  background-color: #f4d35e; /* 青系の背景色 */
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.btn-primary4:hover {
+  background-color: #1f7de1; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+  color: #fff
+}
+
+
+.btn-primary4 {
+  background-color: rgb(133, 199, 243);
+  color: #fff;
+  display: inline-block;  /* ボタンをインラインブロック要素にする */
+  
+}
+
+.btn-primary5:hover {
+  background-color: #dfad14; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+  color: #fff
+}
+
+
+.btn-primary5 {
+  background-color: #f4d35e;
+  color: #fff
+}
+
+
+.btn-danger1 {
+  background-color: #f47676; /* 落ち着いた赤 */
+  color: #fff;
+  border-color: #b43b3b;
+}
+
+.btn-danger1:hover {
+  background-color: #b43b3b; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+  color: #fff
+}
+
+.btn-success1 {
+  background-color: #60d09c; /* 柔らかい緑 */
+  color: #fff;
+  border-color: #4a8b6c;
+}
+
+.btn-success1:hover {
+  background-color: #4a8b6c; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+  color: #fff
+}
+
+
+.btn-warning {
+  background-color: #dbab57; /* 落ち着いたオレンジ */
+  color: #fff;
+  border-color: #c89a4a;
+}
+
+.btn-warning:hover {
+  background-color: #c89a4a; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+/* ボタンのテキストサイズを微調整 */
+.btn-small {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
 /* レスポンシブデザイン: 大きな画面用 */
 @media (max-width: 1200px) {
   .chat-item {
@@ -409,13 +538,222 @@ header {
 
 
 
-  .form-container {
-    border: 1px solid black; /* 枠線の色と太さ */
-    padding: 20px;          /* コンテンツとの余白 */
-    border-radius: 10px;     /* 四角の角を丸くしたい場合 */
-    max-width: 600px;        /* 最大幅 */
-    margin: 20px auto;       /* 上下に20pxの余白、左右は自動で中央寄せ */
-    background-color: #f9f9f9; /* 背景色 */
-    gap: 20px; 
-    
-  }
+/* フォーム全体のスタイル */
+.form-container {
+  border: 1px solid #ddd;  /* 枠線の色と太さ */
+  padding: 30px;          /* コンテンツとの余白 */
+  border-radius: 12px;    /* 四角の角をさらに丸く */
+  max-width: 700px;       /* 最大幅を広く */
+  margin: 40px auto;      /* 上下に40pxの余白、左右は自動で中央寄せ */
+  background-color: #f4f4f4; /* より明るい背景色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 軽い影を追加 */
+}
+
+/* h3 タイトルのスタイル */
+h3 {
+  text-align: center;     /* 中央揃え */
+  font-size: 2rem;        /* フォントサイズを大きく */
+  color: #333;            /* 文字色を濃く */
+  margin-bottom: 20px;    /* 下に余白を追加 */
+}
+
+/* お酒とアテの入力ボックスのコンテナ */
+.drink-snack-container {
+  display: flex;            /* 横並びにする */
+  align-items: center;      /* 中央揃え */
+  justify-content: space-between;  /* スペースを均等に分ける */
+  margin-bottom: 20px;      /* 下に余白を追加 */
+  position: relative;       /* 相対位置を指定 */
+}
+
+/* お酒のフィールド */
+.drink-field {
+  flex: 1;                  /* 幅を均等に */
+  margin-right: 50px;       /* 右に余白を追加 */
+}
+
+/* アテのフィールド */
+.snack-field {
+  flex: 1;                  /* 幅を均等に */
+  margin-left: 50px;        /* 左に余白を追加 */
+}
+
+/* 入力ボックスのスタイル */
+.form-control {
+  width: 100%;              /* 幅を100%に */
+  padding: 10px;            /* 内側の余白を増やす */
+  border: 1px solid #ccc;   /* 枠線の色 */
+  border-radius: 5px;       /* 角を少し丸く */
+  font-size: 1rem;          /* フォントサイズ */
+}
+
+/* お酒とアテの入力フィールドに特別なスタイルを追加 */
+.drink-input,
+.snack-input {
+  text-align: center;       /* テキストを中央揃え */
+  font-weight: bold;        /* 太字 */
+}
+
+/* "×" 記号のスタイル */
+.x-symbol {
+  font-size: 3rem;          /* サイズを大きく */
+  font-weight: bold;        /* 太字 */
+  color: #333;              /* 濃い色に設定 */
+  margin: 15px 0 15px 10px;           /* 左右に余白を追加 */
+  position: absolute;       /* 絶対位置に */
+  top: 50%;                 /* コンテナの中央に配置 */
+  left: 50%;                /* コンテナの中央に配置 */
+  transform: translate(-50%, -50%); /* 中央に配置 */
+  line-height: 1;           /* 行の高さを調整 */
+}
+
+/* フォームラベルのスタイル */
+.field label {
+  font-weight: bold;        /* 太字に */
+  display: block;           /* ブロック表示で改行 */
+  margin-bottom: 5px;       /* 下に余白を追加 */
+}
+
+/* 送信ボタンのスタイル */
+.btn-3 {
+  background-color: rgb(50, 189, 244); /* ブルー系 */
+  color: #fff;               /* テキストを白く */
+  padding: 12px 20px;        /* 内側の余白を増やす */
+  font-size: 1.2rem;         /* 大きめのフォント */
+  border-radius: 5px;        /* 角を丸く */
+  margin-top: 10px;          /* 上に少し余白 */
+  cursor: pointer;           /* カーソルをポインターに */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンに影を追加 */
+}
+
+.btn-3:hover {
+  background-color: #1f7de1; /* ホバー時に少し濃い青 */
+  color: #fff;
+}
+
+/* 一覧に戻るボタンのスタイル */
+.btn-secondary {
+  background-color: #6c757d; /* グレー系 */
+  color: #fff;               /* テキストを白く */
+  padding: 12px 20px;        /* 内側の余白を増やす */
+  font-size: 1.2rem;         /* 大きめのフォント */
+  border-radius: 5px;        /* 角を丸く */
+  margin-top: 20px;          /* 上に少し余白 */
+  cursor: pointer;           /* カーソルをポインターに */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ボタンに影を追加 */
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #5a6268; /* ホバー時に少し濃いグレー */
+}
+
+
+
+
+
+  /* チャット詳細ページ専用のスタイル */
+.chat-detail-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+  
+
+
+.chat-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+
+.chat-item-detail {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-item-detail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chat-item-detail h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.chat-item-detail p {
+  font-size: 1.1em;
+  color: black;
+  margin: 10px 0;
+}
+
+.chat-item-detail img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.liked-users-title {
+  font-size: 1.5em;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.liked-users-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.liked-users-list li {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #dfad14;
+}
+
+.chat-tags {
+  text-align: flex;
+  margin-top: 10px;
+}
+
+.chat-tags span {
+  display: inline-block;
+  background-color: #dfad14;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.9em;
+}
+
+/* ボタンのスタイル */
+.btn-secondary {
+  display: block;
+  width: 150px;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: #f4d35e;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #dfad14;
+}

@@ -20,7 +20,13 @@
       <div class="right-section">
         <div class="header-list">
           <ul>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li>
+            <% if user_signed_in? %>
+              <%= link_to 'ログイン', chats_path %>
+            <% else %>
+              <%= link_to 'ログイン', new_user_session_path %>
+            <% end %>
+            </li>
             <li><%= link_to '新規登録', new_user_registration_path %></li>
           </ul>
         </div>
@@ -34,8 +40,10 @@
       <% else %>
         <!-- 通常のヘッダー -->
         <div class="header-title">
-          <h1>おさけかける</h1>
-          <h6>お酒好きの情報共有サイト</h6>
+          <div class="logo">
+            <%= image_tag 'logo2.png', alt: 'サイトロゴ' %> <!-- 通常のロゴ -->
+            <p class="logo-tagline">お酒好きの情報共有サイト</p> <!-- 説明文 -->
+          </div>
         </div>
 
         <div class="header-list">

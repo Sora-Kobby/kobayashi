@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'hello/index' => 'hello#index'
   get 'chats/:chat_id/likes' => 'likes#create'
   get 'chats/:chat_id/likes/:id' => 'likes#destroy'
-  resources :chats
+  
   resources :chats do
   resources :likes, only: [:create, :destroy]
  end

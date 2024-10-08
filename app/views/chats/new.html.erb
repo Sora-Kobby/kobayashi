@@ -1,32 +1,46 @@
-
 <h3>新規投稿</h3>
+
+
 
 <div class="form-container">
 <%= form_with(model: @chat, local: true, multipart: true) do |f| %>
-  <div class="field">
-    <%= f.label :drink, "お酒" %>
-    <%= f.text_field :drink %>
+  <!-- お酒とアテのコンテナ -->
+  <div class="drink-snack-container">
+    <!-- お酒のフィールド -->
+    <div class="field drink-field">
+      <%= f.label :drink, "お酒" %>
+      <%= f.text_field :drink, class: 'form-control drink-input' %>
+    </div>
+    
+    <!-- "×" 記号 -->
+    <div class="x-symbol">
+      ×
+    </div>
+    
+    <!-- アテのフィールド -->
+    <div class="field snack-field">
+      <%= f.label :snack, "あて" %>
+      <%= f.text_field :snack, class: 'form-control snack-input' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :snack, "あて" %>
-    <%= f.text_field :snack %>
-  </div>
-
+  <!-- 投稿内容 -->
   <div class="field">
     <%= f.label :body, "詳しく！" %>
-    <%= f.text_area :body, size: "60x15" %>
+    <%= f.text_area :body, size: "60x15", class: 'form-control' %>
   </div>
 
+  <!-- 画像アップロード -->
   <div class="field">
     <%= f.label :image, "画像" %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: 'form-control-file' %>
   </div>
   
+  <!-- タグ選択 -->
   <div class='form-group'>
     <%= f.label :tags, "タグを選択" %>
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-      <div class='form-check'>
+      <div class='form-check form-check-inline'>
         <%= tag.label class: 'form-check-label' do %>
           <%= tag.check_box class: 'form-check-input' %>
           <%= tag.text %>
@@ -35,8 +49,9 @@
     <% end %>
   </div>
 
-  <%= f.submit "Tweetする", class: "btn btn-primary" %>
+  <!-- 送信ボタン -->
+  <%= f.submit "投稿する", class: "btn btn-3 btn-block" %>
 <% end %>
 
-<%= link_to "Tweet一覧に戻る", chats_path, class: "btn btn-secondary" %>
+<%= link_to "投稿一覧に戻る", chats_path, class: "btn btn-secondary btn-block mt-3" %>
 </div>

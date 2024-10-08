@@ -38,21 +38,8 @@
 
       <p><%= chat.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
       <p><%= chat.user.name %></p>
-      <%= link_to "詳細へ", chat_path(chat.id) %>
+      <%= link_to "詳細へ", chat_path(chat.id), class: "focus" %>
       
-      <% if user_signed_in? && current_user.id == chat.user_id %>
-        <%= link_to "編集する", edit_chat_path(chat.id) %>
-        <%= button_to "削除する", chat_path(chat.id), method: :delete %>
-      <% end %>
-
-      <!-- いいね機能 -->
-      <% if user_signed_in? %>
-        <% if current_user.liked_chats.include?(chat) %>
-          <%= button_to 'いいねを取り消す', chat_like_path(chat, current_user.likes.find_by(chat: chat)), method: :delete %>
-        <% else %>
-          <%= button_to 'いいね', chat_likes_path(chat), method: :post %>
-        <% end %>
-      <% end %>
 
       <p>いいねの数: <%= chat.likes.count %></p>
     </div>

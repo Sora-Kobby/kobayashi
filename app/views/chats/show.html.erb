@@ -1,17 +1,25 @@
 
-<h3>Tweet詳細</h3>
 
-<div class="chats-container">
-  <div class="chat-item">
-    <p>投稿者: <%= @chat.user.name %></p>   
+<div class="chat-detail-container">
+  <div class="chat-item-detail">
+      
     <h2><%= @chat.drink %> ✖️ <%= @chat.snack %></h2>
+    <div class="name-and-tag">
+      <p>投稿者: <%= @chat.user.name %></p> 
+      <div class="chat-tags">
+        <% @chat.tags.each do |tag| %>
+          <span><%= tag.name %></span>
+        <% end %>
+      </div>
+    </div>
+
     <p><%= @chat.body %></p>
     <p><%= @chat.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
 
     <% if @chat.image? %>
-    <p><strong>画像：</strong></p>
-    <%= image_tag @chat.image.url, alt: "投稿画像" %>
-  <% end %>
+      <p><strong>画像：</strong></p>
+      <%= image_tag @chat.image.url, alt: "投稿画像" %>
+    <% end %>
     
     <%= link_to "Tweet一覧に戻る", chats_path, class: "btn btn-secondary" %>
   </div>
@@ -19,13 +27,3 @@
 
 
 
-<h2>いいねしたユーザー</h2>
-<% @chat.liked_users.each do |user| %>
-  <li><%= user.email %></li>
-<% end %>
-
-<% @chat.tags.each do |tag| %>
-    <span><%= tag.name %></span>
-<% end %>
-
-<%= link_to "Tweet一覧に戻る", chats_path %>

@@ -14,11 +14,11 @@
     border-radius: 10px;   /* 角を丸くする */
     background-color: #f9f9f9; /* 背景色 */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* 影をつけて浮き上がる効果 */
- }
+}
   
   /* フォーム内の各フィールド */
   .login-form .field {
-    margin: 10px 0 0 0;   /* フィールド間に余白を作る */
+    margin: 20px 0 0 0;   /* フィールド間に余白を作る */
   }
   
   .login-form .field label {
@@ -54,7 +54,7 @@
         display: flex;          /* チェックボックスとラベルを横並びにする */
         justify-content: flex-start; /* 左揃えを強制 */
         align-items: center;    /* チェックボックスとテキストを上下中央揃えにする */
-        margin-bottom: 20px;    /* 下に余白を追加 */
+        margin-bottom: 5px;    /* 下に余白を追加 */
         padding-left: 0;        /* 余分な左のスペースを削除 */
         white-space: nowrap; 
     }
@@ -69,7 +69,7 @@
   
 
     /* ログインフォームのリンクスタイル */
-.login-links {
+    .login-links {
     margin-top: 10px;     /* フォームとの余白 */
     text-align: center;   /* 中央揃え */
   }
@@ -87,3 +87,268 @@
   }
   /* ラベルのスタイルを調整（必要なら） */
     
+
+ /* アカウント編集ページ全体のスタイル */
+.account-edit-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* フォーム全体のスタイル */
+.account-edit-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 各フォームグループのスタイル */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.form-control:focus {
+  border-color: #dfad14;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ボタンのスタイル */
+.actions .btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.btn-primary2 {
+  background-color: #f4d35e;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-primary2:hover {
+  background-color: #dfad14;
+}
+
+.btn-secondary {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+.cancel-account-title {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cancel-account {
+  text-align: center;
+  margin-top: 20px;
+  color: white
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  padding: 10px;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+
+/* ユーザープロフィール全体のスタイル */
+.user-profile {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-name {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.edit-profile {
+  text-align: right;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* チャットの投稿リスト */
+.chats-container, .liked-chats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.chat-item, .liked-chat-item {
+  width: calc(33.333% - 20px);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-item:hover, .liked-chat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chat-item h3, .liked-chat-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.chat-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.chat-body {
+  font-size: 1.2rem;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.chat-date, .chat-user {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.like-count {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.chat-tags {
+  margin-top: 10px;
+}
+
+.chat-tag {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+/* ボタンの基本スタイル */
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid #ddd; /* 境界線を追加 */
+  background-color: #f4f4f4; /* 落ち着いたグレーの背景 */
+  color: #333; /* テキストを落ち着いたダークカラーに */
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* スムーズな色と影の変化 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボタンに軽い影を追加 */
+}
+
+/* ボタンにホバー時のスタイル */
+.btn:hover {
+  background-color: #e0e0e0; /* ホバー時に少し濃いグレー */
+  color: black; /* テキストの色を少し濃く */
+  border-color: #ccc; /* 境界線も濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ホバー時に影を強調 */
+}
+
+/* 各色のボタンスタイルをより落ち着かせる */
+.btn-primary2 {
+  background-color: #f4d35e; /* 青系の背景色 */
+  color: #fff;
+  border-color: #0056b3;
+}
+
+.btn-primary2:hover {
+  background-color: #dfad14; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+
+
+
+.btn-danger {
+  background-color: #f47676; /* 落ち着いた赤 */
+  color: #fff;
+  border-color: #b43b3b;
+}
+
+.btn-danger:hover {
+  background-color: #b43b3b; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+.btn-success {
+  background-color: #60d09c; /* 柔らかい緑 */
+  color: #fff;
+  border-color: #4a8b6c;
+}
+
+.btn-success:hover {
+  background-color: #4a8b6c; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+.btn-warning {
+  background-color: #dbab57; /* 落ち着いたオレンジ */
+  color: #fff;
+  border-color: #c89a4a;
+}
+
+.btn-warning:hover {
+  background-color: #c89a4a; /* ホバー時に濃く */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を強調 */
+}
+
+/* ボタンのテキストサイズを微調整 */
+.btn-small {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
