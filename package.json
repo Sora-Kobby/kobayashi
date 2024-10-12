@@ -20,4 +20,10 @@
     "babel-loader": "^8.2.2",
     "webpack-dev-server": "3"
   }
+  
+  
+    {
+      "start": "node server.js"
+    }
+  
 }
