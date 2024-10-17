@@ -22,8 +22,6 @@
   }
   
   
-    {
-      "start": "node server.js"
-    }
+   
   
 }
